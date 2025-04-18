@@ -1,5 +1,5 @@
 import React, { useState } from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom/client";
+import ReactDOM from "https://esm.sh/react-dom";  // Assure-toi d'importer ReactDOM depuis ici
 import { marked } from 'https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js';
 
 class MarkdownPreviewer extends React.Component {
