@@ -1,3 +1,7 @@
+import React from "https://esm.sh/react@17.0.1";
+import ReactDOM from "https://esm.sh/react-dom@17.0.1";
+import {marked} from "https://esm.sh/marked";
+
 class MarkdownPreviewer extends React.Component {
   constructor(props) {
     super(props);
@@ -18,8 +22,7 @@ class MarkdownPreviewer extends React.Component {
     return (
       <div>
         <div id="div-editor">Editor</div>
-          <textarea id="editor" onChange={this.handleChange} cols="90" rows="15">
-            {this.state.input}
+          <textarea id="editor" onChange={this.handleChange} cols="90" rows="15" value={this.state.input}>
             </textarea>
         
         <div id="div-preview">Previewer</div>
