@@ -1,36 +1,43 @@
-import React from "https://esm.sh/react@17.0.1";
-import ReactDOM from "https://esm.sh/react-dom@17.0.1";
-import {marked} from "https://esm.sh/marked";
+import React, { useState } from "https://esm.sh/react@18.2.0";
+import { createRoot } from "https://esm.sh/react-dom@18.2.0";
+import { marked } from "https://esm.sh/marked";
 
-class MarkdownPreviewer extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-        input: "# Markdown Previewer \n\n ## Learning React.js \n[Check to know more about **learning React** here](https://www.freecodecamp.org/news/install-react-with-create-react-app/) \n\n Here the `code` below : \n\n ```\n const code = () => {let x = 5;};\n ```  \n\n- JavaScript \n- Front-end frameworks \n > Strive not to be a success, but rather to be of value \n\n ![coding-image](https://image.noelshack.com/fichiers/2025/16/5/1744981631-screenshot-17.png)",
-        message: []
-      }
-    this.handleChange = this.handleChange.bind(this);
-  }
-  
-  handleChange(event) {
-    this.setState({
-      input: event.target.value
+function MarkdownPreviewer() {
+  const [input, setInput] = useState(`# Markdown Previewer 
+
+## Learning React.js 
+[Check to know more about **learning React** here](https://www.freecodecamp.org/news/install-react-with-create-react-app/) 
+
+Here the \`code\` below : 
+
+\`\`\`
+const code = () => {let x = 5;};
+\`\`\`
+
+- JavaScript 
+- Front-end frameworks 
+> Strive not to be a success, but rather to be of value
+
+![coding-image](https://image.noelshack.com/fichiers/2025/16/5/1744981631-screenshot-17.png)`);
+
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("div", { id: "div-editor" }, "Editor"),
+    React.createElement("textarea", {
+      id: "editor",
+      value: input,
+      onChange: (e) => setInput(e.target.value),
+      cols: 90,
+      rows: 15,
+    }),
+    React.createElement("div", { id: "div-preview" }, "Previewer"),
+    React.createElement("div", {
+      id: "preview",
+      dangerouslySetInnerHTML: { __html: marked(input, { breaks: true }) },
     })
-  }
-
-  render() {
-    return (
-      <div>
-        <div id="div-editor">Editor</div>
-          <textarea id="editor" onChange={this.handleChange} cols="90" rows="15" value={this.state.input}>
-            </textarea>
-        
-        <div id="div-preview">Previewer</div>
-        <div id="preview" dangerouslySetInnerHTML={{
-            __html: marked(this.state.input, {breaks: true}),
-          }}></div>
-      </div>
-    )
-  }
+  );
 }
-ReactDOM.render(<MarkdownPreviewer />, document.getElementById("app"));
+
+const root = createRoot(document.getElementById("app"));
+root.render(React.createElement(MarkdownPreviewer));
