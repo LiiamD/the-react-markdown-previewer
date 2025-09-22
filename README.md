@@ -28,6 +28,6 @@ Un **Markdown Previewer** interactif développé avec **React**, permettant de v
 
 3. Lancer le projet :
    ```bash
-   npm run dev
+   npm start
     ```
 
