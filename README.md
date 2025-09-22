@@ -14,7 +14,6 @@ Un **Markdown Previewer** interactif développé avec **React**, permettant de v
 
 - **React** : interface utilisateur.
 - **Marked.js** : conversion du Markdown en HTML.
-- **Tailwind CSS / CSS** : mise en page et style responsive.
 
 ## 🚀 Installation
 
