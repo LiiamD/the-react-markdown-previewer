@@ -22,8 +22,12 @@ Un **Markdown Previewer** interactif développé avec **React**, permettant de v
    git clone https://github.com/tonpseudo/markdown-previewer.git
 
 2. Installer les dépendances :
-npm install
+   ```bash
+   npm install
+    ```
 
 3. Lancer le projet :
-npm start
+   ```bash
+   npm run dev
+    ```
 
